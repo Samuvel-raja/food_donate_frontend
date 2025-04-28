@@ -9,3 +9,4 @@ export const GET_MY_REQUESTS_URL = `${url}/api/food/my-requests`;
 export const GET_DONATIONS_URL = `${url}/api/food/my-donations`;
 export const DELIVERED_URL = `${url}/api/food/deliver`;
 export const POST_FOOD_REQUEST_URL = `${url}/api/food/request`;
+export const START_RIDE_URL = `${url}/api/food/start-delivery`;

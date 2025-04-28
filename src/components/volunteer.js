@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { DELIVERED_URL, GET_VOLUNTEER_URL } from "../helper/apiurls";
+import {
+  DELIVERED_URL,
+  GET_VOLUNTEER_URL,
+  START_RIDE_URL,
+} from "../helper/apiurls";
 import Cookies from "js-cookie";
 import "../styles/volunteer.css";
 import Loader from "./loader";
@@ -73,6 +77,29 @@ const Volunteer = () => {
   const closeModal = () => {
     setShowModal(false);
     setSelectedData(null);
+  };
+
+  const handleStartRide = async (foodId, assignmentId, address) => {
+    try {
+      const res = await fetch(START_RIDE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ foodId, assignmentId }),
+      });
+
+      if (res.ok) {
+        toast.success(`Ride started successfully! to ${address}`);
+      } else {
+        toast.error("Failed to start ride");
+      }
+      fetchData(); // Optional: refresh the data if needed
+    } catch (error) {
+      toast.error("Error starting ride");
+      console.error("Start ride error:", error);
+    }
   };
 
   return (
@@ -200,8 +227,10 @@ const Volunteer = () => {
               <div className='d-flex gap-16 w-100'>
                 <button
                   onClick={() =>
-                    toast.success(
-                      `Ride started to the ${selectedData?.address}`
+                    handleStartRide(
+                      selectedData?.foodId,
+                      selectedData?.assignmentId,
+                      selectedData?.address
                     )
                   }
                   style={{ marginTop: "10px" }}
