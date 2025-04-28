@@ -197,10 +197,27 @@ const Volunteer = () => {
                   />
                 </div>
               </div>
+              <div className='d-flex gap-16 w-100'>
+                <button
+                  onClick={() =>
+                    toast.success(
+                      `Ride started to the ${selectedData?.address}`
+                    )
+                  }
+                  style={{ marginTop: "10px" }}
+                  className='w-100'
+                >
+                  Start ride
+                </button>
 
-              <button onClick={closeModal} style={{ marginTop: "10px" }}>
-                Close
-              </button>
+                <button
+                  onClick={closeModal}
+                  style={{ marginTop: "10px" }}
+                  className='w-100'
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         )}

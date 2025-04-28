@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const MyRequests = () => {
   const [MyRequestsData, setMyRequestsData] = useState([]);
-  const [selectedData, setSelectedData] = useState(null); // For popup
+  const [selectedData, setSelectedData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,6 +16,7 @@ const MyRequests = () => {
   const navigate = useNavigate();
 
   if (!token) navigate("/");
+
   const fetchData = async () => {
     setIsLoading(true);
     try {
@@ -81,7 +82,6 @@ const MyRequests = () => {
                   </p>
                 </div>
 
-                {/* Added Buttons */}
                 <div style={{ marginTop: "10px" }}>
                   <button
                     className='view-button'
