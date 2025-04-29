@@ -9,16 +9,18 @@ import Navbar from "./components/navbar";
 import MyRequests from "./components/myRequests";
 import MyDonations from "./components/myDonations";
 import MyGoogleMap from "./components/map";
+import LandingPage from "./components/landingPage";
 
 function App() {
   const path = useLocation();
 
   return (
     <>
-      {path.pathname != "/" && <Navbar />}
+      {path.pathname != "/loginsignin" && <Navbar />}
       <>
         <Routes>
-          <Route path='/' element={<LoginSignUp />} />
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/loginsignin' element={<LoginSignUp />} />
           <Route path='/donatefood' element={<DonorForm />} />
           <Route path='/volunteer' element={<Volunteer />} />
           <Route path='/myrequests' element={<MyRequests />} />

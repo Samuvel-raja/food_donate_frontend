@@ -52,9 +52,9 @@ const LoginSignUp = () => {
         alert("Registration successful!");
         Cookies.set("token", data?.token);
         Cookies.set("role", data?.user?.role);
-        if (data?.user?.role == "donor") navigate("donatefood");
-        else if (data?.user?.role == "volunteer") navigate("volunteer");
-        else navigate("foodlistings");
+        if (data?.user?.role == "donor") navigate("/donatefood");
+        else if (data?.user?.role == "volunteer") navigate("/volunteer");
+        else navigate("/foodlistings");
       } else {
         alert(data.error || "Registration failed");
       }
@@ -76,9 +76,9 @@ const LoginSignUp = () => {
         alert("Login successful!");
         Cookies.set("token", data?.token);
         Cookies.set("role", data?.user?.role);
-        if (data?.user?.role == "donor") navigate("donatefood");
-        else if (data?.user?.role == "volunteer") navigate("volunteer");
-        else navigate("foodlistings");
+        if (data?.user?.role == "donor") navigate("/donatefood");
+        else if (data?.user?.role == "volunteer") navigate("/volunteer");
+        else navigate("/foodlistings");
       } else {
         alert(data.error || "Login failed");
       }
